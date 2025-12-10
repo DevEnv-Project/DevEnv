@@ -1,0 +1,35 @@
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Bb]in/
+[Oo]bj/
+# Visual Studio cache/options directory
+vs/
+vs/*
+# Test results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+# Files built by Visual Studio
+*.obj
+*.pch
+*.pdb
+*.ipdb
+*.log
+# NuGet Packages
+*.nupkg
+**/packages/*
+# Windows Installer files
+*.cab
+*.msi
+# Others
+node_modules/
+Thumbs.db
+Desktop.ini

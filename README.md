@@ -27,3 +27,20 @@ This is going to be similar to the original project idea.
 - Project templates
 - Informative documentation
 - Integration with other projects, including GNPM (Graphical Node Package Manager)
+
+## Building
+Building this can be quite annoying, you need to set an environment variable firs#
+
+### Windows
+You can either use CMD, or PowerShell to add an environment variable, for example with PS:
+```ps
+Set-Item -Path Env:VCPKG_ROOT -Value "C:\vcpkg"
+```
+
+### DevEnvUI
+First, you need to make sure that CMake and VCPkg are set up correctly, you need to use `vcpkg install integrate`, and `vcpkg install gtkmm:x64-windows` (or other platforms)
+
+Then use `cmake -B build -S . -DCMAKE_TOOLCHAIN_FILE=(CMake base)/scripts/buildsystems/vcpkg.cmake`
+E.g. `cmake -B build -S . -DCMAKE_TOOLCHAIN_FILE=G:/vcpkg/scripts/buildsystems/vcpkg.cmake`
+
+Finally, build with `cmake --build build` (You may need to create a `build` directory)

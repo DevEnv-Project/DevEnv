@@ -35,3 +35,11 @@ node_modules/
 Thumbs.db
 Desktop.ini
 out/
+build/
+# Vcpkg
+vcpkg_installed/
+# CMake
+**/CMakeFiles/
+**/CmakeCache.txt
+# Build
+**/build/

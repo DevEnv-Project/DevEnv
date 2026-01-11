@@ -1,8 +1,16 @@
-﻿// DevEnvUI.h : Include file for standard system include files,
-// or project specific include files.
-
-#pragma once
+﻿#pragma once
 
 #include <iostream>
+#include <gtkmm/application.h>
+#include <gtkmm/window.h>
 
-// TODO: Reference additional headers your program requires here.
+class MainWindow : public Gtk::Window {
+public:
+    MainWindow() {
+        set_title("DevEnvUI");
+        set_default_size(600, 450);
+    }
+    ~MainWindow() {
+
+    }
+};

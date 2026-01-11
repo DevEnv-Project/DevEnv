@@ -1,6 +1,7 @@
 #include <gtkmm/application.h>
 #include <gtkmm/window.h>
-#include "DevEnvUI.h"
+#include <DevEnvUI.h>
+#include <devenv_utils.h>
 
 int main(int argc, char* argv[])
 {

@@ -24,5 +24,16 @@ set(CMAKE_C_STANDARD 99)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CMAKE_C_STANDARD_REQUIRED ON)
 
-# Include sub-projects.
-add_subdirectory("DevEnvUI")
+# Include options
+include(cmake/options.cmake)
+
+# Include sub-projects
+add_subdirectory(shared)
+if(DEVENV_BUILD)
+    add_subdirectory("DevEnvUI")
+    add_subdirectory("cli")
+endif()
+
+if(DEVENV_BUILD_DOCS)
+    include(cmake/docs.cmake)
+endif()

@@ -4,7 +4,7 @@ file(GLOB_RECURSE UI_FILES
 )
 
 set(TARGET DevEnvUI)
-add_executable(${TARGET} ${UI_FILES})
+add_executable(${TARGET} ${UI_FILES} ${SHARED_FILES})
 
 #target_link_libraries(${TARGET} PRIVATE gtkmm::gtkmm)
 

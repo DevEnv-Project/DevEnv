@@ -1,5 +1,13 @@
 #pragma once
 
+#if defined(_WIN32)
+    #define CMD_ARG_START "/"
+    #define CMD_ARG_SHORT_START "/"
+#else
+    #define CMD_ARG_START "--"
+    #define CMD_ARG_SHORT_START "-"
+#endif
+
 typedef struct CommandArgValuesInteger {
     int min;
     int max;
@@ -9,13 +17,23 @@ typedef union CommandArgValues {
     CommandArgValuesInteger integer;
 } CommandArgValues;
 
+#define FOREACH_ARG_TYPE(ARG_TYPE) \
+        ARG_TYPE(ARG_TYPE_BOOL)    \
+        ARG_TYPE(ARG_TYPE_STRING)  \
+        ARG_TYPE(ARG_TYPE_PATH)    \
+        ARG_TYPE(ARG_TYPE_INTEGER) \
+        ARG_TYPE(ARG_TYPE_FLOAT)   \
+
+#define GENERATE_ENUM(ENUM)     ENUM,
+#define GENERATE_STRING(STRING) #STRING,
+
 typedef enum CommandArgType {
-    ARG_TYPE_BOOL,
-    ARG_TYPE_STRING,
-    ARG_TYPE_PATH,
-    ARG_TYPE_INTEGER,
-    ARG_TYPE_FLOAT
+    FOREACH_ARG_TYPE(GENERATE_ENUM)
 } CommandArgType;
+
+static const char* CommandArgTypeString[] = {
+    FOREACH_ARG_TYPE(GENERATE_STRING)
+};
 
 typedef struct CommandArg {
     const char* arg;

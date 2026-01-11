@@ -4,7 +4,11 @@
 // Original: https://stackoverflow.com/a/75135110/16426057
 
 #include <stdio.h>
-#include <unistd.h>
+#if defined(_WIN32)
+    #include <memory.h>
+#else
+    #include <unistd.h>
+#endif
 
 /// @brief Start the progress bar
 #define START_PROGRESS_BAR(pbar, len) \

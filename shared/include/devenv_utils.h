@@ -2,3 +2,5 @@
     #include <devenv_utils.h>
 */
 
+#include "devenv_utils/progress.h"
+#include "devenv_utils/string.h"

@@ -5,6 +5,11 @@ file(GLOB_RECURSE DEVENV_FILES
     ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp
 )
 
+file(GLOB_RECURSE SHARED_FILES
+	${CMAKE_SOURCE_DIR}/shared/src/*.c
+    ${CMAKE_SOURCE_DIR}/shared/src/*.cpp
+)
+
 add_executable(devenv ${DEVENV_FILES} ${SHARED_FILES})
 
 target_include_directories(devenv

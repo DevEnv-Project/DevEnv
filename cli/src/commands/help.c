@@ -27,7 +27,7 @@ void cli_command_print_usage(Command cmd, int detailed) {
                 printf("No aliases");
             } else {
                 for(int j = 0; j < cmd.args[i].total_aliases; j++) {
-                    printf(cmd.args[i].aliases[j]);
+                    printf(CMD_ARG_SHORT_START "%s", cmd.args[i].aliases[j]);
                     if(j != cmd.args[i].total_aliases - 1) {
                         printf(", ");
                     }

@@ -43,3 +43,4 @@ vcpkg_installed/
 **/CmakeCache.txt
 # Build
 **/build/
+**/wslbuild/

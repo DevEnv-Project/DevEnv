@@ -1,10 +1,10 @@
 #include <string.h>
-#include <malloc.h>
 #include <devenv_cli/command_handler.h>
 #include <devenv_utils.h>
 
-int cli_find_command(const char* search, Command* cmd) {
-    char* str = search;
+int cli_find_command(const char* search, Command** cmd) {
+    char* str = malloc(sizeof(search));
+    strcpy(str, search);
     shared_str_ptr_to_lower(str);
 
     int i = 0;
@@ -16,11 +16,11 @@ int cli_find_command(const char* search, Command* cmd) {
 
         int found = 0;
 
-        if(strcmp(_cmd.aliases[i], str) == 0) {
+        if(strcmp(_cmd.command, str) == 0) {
             found = 1;
         } else {
-            for(int i = 0; i < _cmd.total_aliases; i++) {
-                if(strcmp(_cmd.aliases[i], str) == 0) {
+            for(int j = 0; j < _cmd.total_aliases; j++) {
+                if(strcmp(_cmd.aliases[j], str) == 0) {
                     found = 1;
                     break;
                 }
@@ -28,8 +28,7 @@ int cli_find_command(const char* search, Command* cmd) {
         }
 
         if(found == 1) {
-            cmd = malloc(sizeof(cli_commands[i]));
-            memcpy(cmd, &cli_commands[i], sizeof(cli_commands[i]));
+            *cmd = &cli_commands[i];
             return 1;
         }
 
